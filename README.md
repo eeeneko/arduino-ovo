@@ -72,4 +72,44 @@ void loop() {
 }
 ````
 -------------------
+## Class slowWrite
+Use this class to make a rough voltage change slower.
+### slowWrite.set()
+Use this function to set the pin and delay info.
+#### Params:
+ - **int pin** Here is your pin number.
+ - **int delay** How slow you want a voltage change from 0 to 1 in milliseconds.
+ -------------------------------------------------------
+### slowWrite.run()
+Put this in your main loop.
+ -------------------------------------------------------
+### slowWrite.high()
+To change the pin voltage from 0 to 1.
+----------------------
+### slowWrite.low()
+To change the pin voltage from 1 to 0.
+----------------------
+#### Example
+````C++
+#include "ovo.h"
 
+slowWrite m; //Must before setup()
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+    // initialize digital pin LED_BUILTIN as an output.
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+    m.set(LED_BUILTIN, 2000); //The objected pin is LED_BUILTIN, every voltage change takes 2 sec
+
+    //The led will on and off for every 3 sec
+    setTimeout([]{setInterval([]{m.high();}, 6000);},3000);
+    setInterval([]{m.low();}, 6000);
+    
+    m.run(); //This must be put here
+}
+````
+--------------------------------
