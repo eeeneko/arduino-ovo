@@ -81,13 +81,13 @@ Use this function to set the pin and delay info.
  - **int delay** How slow you want a voltage change from 0 to 1 in milliseconds.
  -------------------------------------------------------
 ### slowWrite.run()
-Put this in your main loop.
+ - Put this in your main loop.
  -------------------------------------------------------
 ### slowWrite.high()
-To change the pin voltage from 0 to 1.
+ - To change the pin voltage from 0 to 1.
 ----------------------
 ### slowWrite.low()
-To change the pin voltage from 1 to 0.
+ - To change the pin voltage from 1 to 0.
 ----------------------
 #### Example
 ````C++
